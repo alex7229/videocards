@@ -1,0 +1,37 @@
+<tr align="center" style="background-color:#dddddd;">
+						<th rowspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Radeon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<th rowspan="3">Release<br>Date</th>
+						<th rowspan="3">Core</th>
+						<th rowspan="2">Onboard<br>Memory</th>
+						<th rowspan="3">Interface</th>
+						<th rowspan="2">Core<br>Clock</th>
+						<th colspan="4">Memory</th>
+						<th rowspan="2">Config<br>Core</th>
+						<th colspan="2" rowspan="2">Fill Rate</th>
+						<th colspan="2">Processing<br>Power</th>
+						<th rowspan="2">TDP</th>
+						<th colspan="2">Benchmark</th>
+					</tr>
+					<tr align="center" style="background-color:#dddddd;">
+						<th rowspan="2">Type</th>
+						<th>Clock<br>(eff.)</th>
+						<th>Bus</th>
+						<th>MBW</th>
+						<th>FP32</th>
+						<th>FP64</th>
+						<th>Dx9</th>
+						<th>Dx10</th>
+					</tr>
+					<tr align="center" style="background-color:#dddddd;">
+						<th>MB</th>
+						<th>MHz</th>
+						<th>MHz</th>
+						<th>bit</th>
+						<th>GB/s</th>
+						<th>number</th>
+						<th>GP/s</th>
+						<th>GT/s</th>
+						<th colspan="2">GFLOPs</th>
+						<th>watts</th>
+						<th colspan="2">FPS</th>
+					</tr>

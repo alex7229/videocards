@@ -1,0 +1,117 @@
+﻿<table border="0" align="center">
+	<tbody><tr class="com">
+		<td><b>Release Date</b> — дата выпуска</td>
+		<td><b>MB</b> — МБ</td>
+	</tr>
+	<tr class="com">
+		<td><b>Core</b> — ядро (графический чип)</td>
+		<td><b>MHz</b> — МГц</td>
+	</tr>
+	<tr class="com">
+		<td><b>On-board Memory</b> — объём локальной памяти</td>
+		<td><b>bit</b> — бит</td>
+	</tr>
+	<tr class="com">
+		<td><b>Interface</b> — интерфейс (шина) подключения</td>
+		<td><b>GB/s</b> — ГБ/с</td>
+	</tr>
+	<tr class="com">
+		<td><b>Clock</b> — частота, <b>Core</b> Clock — частота работы ядра</td>
+		<td><b>number</b> — количество</td>
+	</tr>
+	<tr class="com">
+		<td><b>Avg/Max Boost</b> Clock — средняя/максимальная частота графического процессора<br> в рамках технологии GPU Boost</td>
+		<td><b>GP/s</b> — миллиардов пикселей в секунду</td>
+	</tr>
+	<tr class="com">
+		<td><b>Shader domain</b> Clock — частота работы шейдерных блоков (SPU)</td>
+		<td><b>GT/s</b> — миллиардов текселей в секунду</td>
+	</tr>
+	<tr class="com">
+		<td><b>Memory</b> — локальная память</td>
+		<td><b>GFLOPs</b> — Гфлопс</td>
+	</tr>
+	<tr class="com">
+		<td><b>Type</b> — тип</td>
+		<td><b>watts</b> — ватт, Вт</td>
+	</tr>
+	<tr class="com">
+		<td><b>Clock (eff.)</b> — рабочая (effective, эффективная) частота</td>
+		<td>&nbsp;</td> 
+	</tr>
+	<tr class="com">
+		<td><b>Bus</b> — ширина шины данных</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>SDR</b> (Single Data Rate) — память с возможностью передачи одного пакета данных за такт</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>DDR</b> (Double Data Rate) — память с возможностью передачи двух пакетов данных за такт</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>MBW</b> (Memory BandWidth) — пропускная способность памяти</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>Config Core</b> (SPU:TMU(TF):ROP) — конфигурация блоков графического процессора</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>SPU</b> (Stream Processor Unit) — универсальный потоковый процессор (шейдерный блок)</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>TMU</b> (Texture Mapping Unit) — блок текстурирования</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>TF</b> (Texture Filtering Unit) - блок текстурной (билинейной) фильтрации</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>TA</b> (Texture Address Unit) - блок текстурной адресации</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>ROP</b> (Raster Operation Pipe) — блок растеризации</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>PPU</b> (Pixel Processor Unit) — пиксельный процессор</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>Fill Rate</b> — скорость заполнения</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>Processing Power</b> — теоретическая производительность на вычислениях с плавающей запятой</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td>
+			<b>FP16</b> (Half Precision) — половинная точность вычислений с плавающей запятой<br>
+			<b>FP32</b> (Single Precision) — одинарная точность вычислений с плавающей запятой<br>
+			<b>FP64</b> (Double Precision) — двойная точность вычислений с плавающей запятой
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>TDP</b> (Thermal Design Power) — тепловой пакет</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>TC</b> — Turbo Cache</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="com">
+		<td><b>OEM</b> — (Original Equipment Manufacturer) — производитель комплектного оборудования</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr align="center" style="background-color:#fafafa;">
+		<td colspan="2"><br>Более подробно ознакомиться с 3D терминологией можно в статье <a target="_blank" href="http://radeon.ru/articles/likbez/">Ликбез по 3D</a>.<br>Для ознакомления с подробными характеристиками графических процессоров NVIDIA смотрите соответствующую <a target="_blank" href="http://radeon.ru/reference/nvidia/chiptable/">таблицу</a>.</td>
+	</tr>
+</tbody></table>

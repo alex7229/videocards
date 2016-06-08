@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Testing shit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css"/>
+    <script src="jQuery%202.2.2.min.js"></script>
+    <script src="test.js"></script>
+
+
+</head>
+<body><!--
+    <div id="gameField"></div>
+    <div id="gameSettings">
+        <button id="moveSnake" type="button">move Snake cell</button>
+        <button id="makePartSnake" type="button">Create another part of snake and make it grow</button>
+    </div>
+-->
+<div class="dropdown">
+    <button class="dropbtn">Выбрать производителя</button>
+    <div class="dropdown-content">
+        <p class="dropdownText" onclick="controller.drawAmdTable()">AMD</p>
+        <p class="dropdownText" onclick="controller.drawNvidiaTable()">Nvidia</p>
+        <p class="dropdownText" onclick="controller.drawAtiTable()">ATI</p>
+    </div>
+</div>
+<div id="contentPage">
+<div id="fullDescription">
+<h2>
+    Сравнительные таблицы графических карт AMD (ATI) Radeon
+</h2>
+<div id="description">
+    <pre>
+    <strong>Release Date</strong> — дата выпуска
+    <strong>Core</strong> — ядро (графический чип)
+    <strong>On-board Memory</strong> — объём локальной памяти
+    <strong>Interface</strong> — интерфейс (шина) подключения
+    <strong>Core Clock</strong> — частота работы ядра
+    <strong>Memory</strong> — локальная память
+    <strong>Type</strong> — тип
+    <strong>Clock (eff.)</strong> — рабочая (effective, эффективная) частота
+    <strong>Bus — ширина шины данных</strong>
+    <strong>SDR</strong> (Single Data Rate) — память с возможностью передачи одного пакета данных за такт
+    <strong>DDR</strong> (Double Data Rate) — память с возможностью передачи двух пакетов данных за такт
+    <strong>MBW</strong>(Memory BandWidth) — пропускная способность памяти
+    <strong>Config Core</strong> (SPU:TMU(TF):ROP) — конфигурация блоков графического процессора
+    <strong>SPU</strong> (Stream Processor Unit) — универсальный потоковый процессор (шейдерный блок)
+    <strong>TMU</strong> (Texture Mapping Unit) — блок текстурирования
+    <strong>TF</strong> (Texture Filtering Unit) - блок текстурной (билинейной) фильтрации
+    <strong>TA</strong> (Texture Address Unit) - блок текстурной адресации
+    <strong>ROP</strong> (Raster Operation Pipe) — блок растеризации
+    <strong>PPU</strong> (Pixel Processor Unit) — пиксельный процессор
+    <strong>Fill Rate</strong> — скорость заполнения
+    <strong>Processing Power</strong> — теоретическая производительность на вычислениях с плавающей запятой
+    <strong>FP32</strong> (Single Precision) — одинарная точность вычислений с плавающей запятой
+    <strong>FP64</strong> (Double Precision) — двойная точность вычислений с плавающей запятой
+    <strong>TDP</strong> (Thermal Design Power) — тепловой пакет
+    <strong>TC</strong> — Turbo Cache
+    <strong>OEM</strong> — (Original Equipment Manufacturer) — производитель комплектного оборудования
+    <strong>Benchmark</strong> — Результаты бенчмарков с сайта http://www.userbenchmark.com/
+    </pre>
+</div>
+
+<div id="descriptionNumbers">
+    <pre>
+        MB — МБ
+        MHz — МГц
+        bit — бит
+        GB/s — ГБ/с
+        number - количество
+        GP/s — миллиардов пикселей в секунду
+        GT/s — миллиардов текселей в секунду
+        Mpix/s - миллионов пикселей в секунду
+        Mtex/s - миллионов текселей в секунду
+        GFLOPs — Гфлопс
+        watts — ватт, Вт
+    </pre>
+</div>
+</div>
+
+    <div id="amdTable"></div>
+    <div id="nvidiaTable"></div>
+    <div id="atiTable"></div>
+
+
+
+
+
+
+    </div>
+</body>
+</html>

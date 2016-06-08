@@ -1,0 +1,53 @@
+let list = [{
+                manufacturer: 'amd',
+                name: 'fury',
+                releaseDate: '24.02.16',
+                core: 'fiji',
+                memoryVolume: 4096,
+                cardInterface: ['PCI-E', '3.0 x16'],
+                coreClock: 1000,
+                memoryType: 'GDDR5',
+                memoryEffectiveClock: 1000,
+                memoryBus: 4096,
+                MBW: 512,
+                configCore: '3856:64:24',
+                pxFillRate: 60,
+                txFillRate: 250,
+                FP32: 8000,
+                FP64: 400,
+                TDP: 250,
+		dx9: 80,
+		dx10: 120,
+                insertAfter: 'R9 390X'
+            }];
+
+            console.log(JSON.stringify(list));
+
+
+
+
+
+
+
+let list = [{
+                manufacturer: 'nvidia',
+                name: ['GTX 660', '(OEM)'],
+                releaseDate: '22.08.2012',
+                core: 'GK104-200-KD-A2',
+                memoryVolume: 4096,
+                cardInterface: ['PCI-E', '3.0 x16'],
+                coreClock: 1000,
+                memoryType: 'GDDR5',
+                memoryEffectiveClock: 1000,
+                memoryBus: 4096,
+                MBW: 512,
+                configCore: '3856:64:24',
+                pxFillRate: 60,
+                txFillRate: 250,
+                FP32: 8000,
+                FP64: 400,
+                TDP: 250,
+		dx9: 80,
+		dx10: 120,
+                insertAfter: 'R9 390X'
+            }];
