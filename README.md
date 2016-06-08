@@ -1,2 +1,2 @@
 # videocards
-Simple table like radeon.ru. Mostly used regular expressions.
+Simple table like http://radeon.ru/reference/cardtable/. Mostly used regular expressions.
