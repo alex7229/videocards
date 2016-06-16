@@ -10,7 +10,7 @@
 		<th colspan="2" rowspan="2">Fill Rate</th>
 		<th colspan="2">Processing<br>Power</th>
 		<th rowspan="2">TDP</th>
-		<th colspan="2">Benchmark</th>
+		<th rowspan="2">Benchmark</th>
 	</tr>
 	                    <tr align="center" style="background-color:#dddddd;">
 		<th>Core</th>
@@ -21,8 +21,7 @@
 		<th>MBW</th>
 		<th>FP32</th>
 		<th>FP64</th>
-		<th>Dx9</th>
-		<th>Dx10</th>
+		
 	</tr>
 	                    <tr align="center" style="background-color:#dddddd;">
 		<th>MB</th>
@@ -35,5 +34,5 @@
 		<th>GT/s</th>
 		<th colspan="2">GFLOPs</th>
 		<th>watts</th>
-		<th colspan="2">FPS</th>
+		<th>%</th>
 	</tr>

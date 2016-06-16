@@ -8,7 +8,7 @@
 						<th>PPU</th>
 						<th>TpC</th>
 						<th colspan="2">Fill Rate</th>
-						<th colspan="2">Benchmark</th>
+						
 					</tr>
 					<tr align="center" style="background-color:#dddddd;">
 						<th rowspan="2">PCI-E<br>16x</th>
@@ -22,13 +22,12 @@
 						<th colspan="2" rowspan="2">number</th>
 						<th rowspan="2">Mpix/s</th>
 						<th rowspan="2">Mtex/s</th>
-						<th>Dx9</th>
-						<th>Dx10</th>
+						
 					</tr>
 					<tr align="center" style="background-color:#dddddd;">
 						<th>MB</th>
 						<th>MHz</th>
 						<th>bit</th>
 						<th>GB/s</th>
-						<th colspan="2">FPS</th>
+	
 					</tr>

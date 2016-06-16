@@ -50,6 +50,7 @@ class Config {
     constructor(breakCards, options) {
         this.legend = {};
         this.oldCards = {};
+        this.benchmark = {};
         this.breakCards = breakCards;
         this.options = options
     }
@@ -74,9 +75,6 @@ class Config {
     }
 
     defineAllConfig() {
-
-
-
         let urls = [];
         this.options.forEach((option) => {
             urls.push(option.path)
@@ -89,9 +87,32 @@ class Config {
                     this.setConfigPart(name, data[i], type)
                 }
             })
+    }
 
-
-
+    transformBenchmarkData () {
+        let rawData = this.benchmark.all;
+        this.benchmark = rawData.split(/\n/g);
+        this.benchmark.shift();
+        let benchWithoutDuplicates = [];
+        for (let i=0; i<this.benchmark.length; i++) {
+            let cardData = this.benchmark[i];
+            let regExp = /,\d*,(\d*(?:\.\d+)?),\d*,(http.+)/;
+            let card = cardData.match(regExp);
+            if (card === null) continue;
+            let isDuplicate = false;
+            benchWithoutDuplicates.forEach( usedCard => {
+                if (usedCard.url === card[2]) {
+                    isDuplicate = true
+                }
+            }) ;
+            if (!isDuplicate) {
+                benchWithoutDuplicates.push({
+                    url: card[2],
+                    percents: card[1]
+                })
+            }
+        }
+        this.benchmark = benchWithoutDuplicates;
     }
 
 }
@@ -178,6 +199,35 @@ class Table {
 
 }
 
+class UserBenchmark {
+
+    constructor (cardsData, benchmarkData) {
+        this.cardsData = cardsData;
+        this.benchmark = benchmarkData
+    }
+
+    findCardsWithUrl () {
+        this.cardsData.forEach(videocard => {
+            let possibleUrl = videocard[videocard.length-1];
+            if (Table.isUrl(possibleUrl)) {
+                videocard[videocard.length-2] = this.findBenchmarkData(possibleUrl)
+            }
+        })
+    }
+
+    findBenchmarkData (url) {
+        let percents = '-';
+        for (let i=0; i<this.benchmark.length; i++) {
+            let possibleCard  = this.benchmark[i];
+            if (possibleCard.url === url) {
+                percents = possibleCard.percents;
+                break
+            }
+        }
+        return percents
+    }
+}
+
 
 
 
@@ -205,10 +255,14 @@ class Table {
         path: 'config/legend/ati.txt',
         name: 'ati',
         type: 'legend'
+    }, {
+        path: 'config/benchmarkData.txt',
+        name: 'all',
+        type: 'benchmark'
     }];
     let breakCards = {
         amd: ['R5 330', 'R7 240', 'HD 7350', 'HD 6350', 'HD 5450', 'HD 4350', 'HD 3430'],
-        nvidia: ['950', '710', '605', '510', '405', '310', '205', 'G100', '9300 GE'],
+        nvidia: ['1070','GTX 950', '710', '605', '510', '405', '310', '205','G100', '9300 GE'],
         ati:  ['X1050', 'X300 SE', '9500 Pro']
     };
 
@@ -218,121 +272,16 @@ class Table {
     let configData = new Config(breakCards, options);
     configData.defineAllConfig()
         .then( () => {
+            configData.transformBenchmarkData();
             amd.cardsData = JSON.parse(configData.oldCards.amd);
             nvidia.cardsData = JSON.parse(configData.oldCards.nvidia);
             ati.cardsData = JSON.parse(configData.oldCards.ati);
+
+            let nvidiaBenchmark = new UserBenchmark(nvidia.cardsData, configData.benchmark);
+            nvidiaBenchmark.findCardsWithUrl();
+
+            let amdBenchmark = new UserBenchmark(amd.cardsData, configData.benchmark);
+            amdBenchmark.findCardsWithUrl()
+
         });
-
-
-
-
-class Parse {
-
-    constructor (html) {
-        this.html = html;
-        this.heading = ``;
-        this.dx9 = ``;
-        this.dx10 = ``
-    }
-
-    findHeading () {
-        let regExp = /<thead>[\s\S]*?Splatting[\s\S]*?<\/thead>/g;
-        this.heading = this.html.match(regExp)[0];
-    }
-
-    findFPS () {
-        let regExp = /([\d]+(\.[\d]+)?)<span class="tc-units"> fps/g;
-        let regExpResult;
-        let fps = [];
-        while ((regExpResult = regExp.exec(this.heading)) !== null) {
-            fps.push(regExpResult[1])
-        }
-        this.dx9 = fps[0];
-        this.dx10 = fps[1]
-    }
-
-}
-
-
-
-
-class SubDomainAjax {
-
-    constructor (url) {
-        this.url = url;
-    }
-
-    getHTML () {
-        return new Promise ( (resolve) => {
-            $.post( "/getPageHTML", { pageUri: this.url} )
-                .done( data => {
-                    resolve (data)
-                });
-        });
-    }
-
-}
-
-/*let nvidia1080 = new SubDomainAjax('https://webproxy.stealthy.co/browse.php?u=http%3A%2F%2Fgpu.userbenchmark.com%2FNvidia-GTX-780-Ti%2FRating%2F2165&b=28');
-nvidia1080.getHTML()
-    .then( (receivedHtml) => {
-        let parse = new Parse(receivedHtml);
-        parse.findHeading();
-        parse.findFPS();
-        console.log(`length in symboles of html is ${receivedHtml.length}`);
-        console.log(`length in symboles of heading is ${parse.heading.length}`);
-        console.log(`dx9 fps is ${parse.dx9}`);
-        console.log(`dx10 fps is ${parse.dx10}`);
-    });
-*/
-
-
-
-
-let results = [];
-
-function fps (name, url) {
-    return new Promise( (resolve, reject) => {
-        let ajax = new SubDomainAjax(url);
-        ajax.getHTML()
-            .then( (result) => {
-                let parse = new Parse(result);
-                parse.findHeading();
-                parse.findFPS();
-                let card = {
-                    name: name,
-                    dx9: parse.dx9,
-                    dx10: parse.dx10
-                };
-                results.push(card);
-                console.log('data retrieved');
-                resolve ('success')
-            }, error => {
-                reject (error)
-            })
-    })
-}
-
-function findFPS () {
-    counts++;
-    if (counts>5) {
-        return
-    }
-    nvidia.cardsData.forEach( (card) => {
-        if (Table.isUrl(card[card.length-1])) {
-            console.log('find some url in cardData');
-            fps(card[0], card[card.length-1])
-        }
-    })
-}
-
-
-
-
-
-
-
-
-
-
 
